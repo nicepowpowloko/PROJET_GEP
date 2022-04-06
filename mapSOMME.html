@@ -7,9 +7,11 @@
 
         <style>
             #maCarte{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-                height:550px;
+            height:550px;
                 width: 650px;
-                margin-left: 120vh;
+               margin-left: 100vh;
+               border: 2px black solid;
+               border-radius: 10px;
             }
         </style>
 
@@ -28,12 +30,21 @@
             
         };
 
-        var villes2 = {
+        var villes3 = {
             
-            "abbeville": { "lat": 50.0600, "lon": 1.4959}
+            "pont remy": { "lat": 50.0489, "lon": 1.90058}
             
         };
 
+
+        var villes2 = {
+            
+            "abbeville": { "lat": 50.134581, "lon": 1.945999}
+            
+        };
+
+   
+        var tableauMarqueurs =  [];
 
 
 
@@ -56,6 +67,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                     popupAnchor: [0, -50]
                 })
 
+                var icone3 = L.icon({
+                    iconUrl: "image/icon3.jpg",
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50,],
+                    popupAnchor: [0, -50]
+                })
+
 
                 var icone2 = L.icon({
                     iconUrl: "image/icon.jpg",
@@ -64,9 +82,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                     popupAnchor: [0, -50]
                 })
 
+            
 
                 for(ville in villes){
                     var marqueur = L.marker([villes[ville].lat, villes[ville].lon], {icon: icone}).addTo(carte);
+//var marqueur variable que j'appelle L.marker'([]), me sert de longitude et latitude//
+                marqueur.bindPopup("<p>"+ville+"</p>");
+                }
+
+                for(ville in villes3){
+                    var marqueur = L.marker([villes3[ville].lat, villes3[ville].lon], {icon: icone3}).addTo(carte);
 //var marqueur variable que j'appelle L.marker'([]), me sert de longitude et latitude//
                 marqueur.bindPopup("<p>"+ville+"</p>");
                 }
@@ -76,10 +101,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                     var marqueur = L.marker([villes2[ville].lat, villes2[ville].lon], {icon: icone2}).addTo(carte);
 //var marqueur variable que j'appelle L.marker'([]), me sert de longitude et latitude//
                 marqueur.bindPopup("<p>"+ville+"</p>");
-                }
 
 
+                // ajout tableau marqueur//
+                tableauMarqueurs.push(marqueur);
+            }
+            // regroupe les marqueurs dans un groupe leaflet//
+                var groupe = new L.featureGroup(tableauMarqueurs);
 
+             // adopter zoom sur les marqueurs//   
+                carte.fitBounds(groupe.getBounds().pad(0.5));
 
     </script>
 
