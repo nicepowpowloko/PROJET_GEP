@@ -7,12 +7,16 @@
 
         <style>
             #maCarte{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-                height:400px;
+                height:550px;
+                width: 650px;
+               margin-left: 100vh;
+               border: 2px black solid;
+               border-radius: 10px;
             }
         </style>
 
 
-        <title>Carte</title>
+        <title>mapNORD</title>
     </head>
     <body>
     <div id="maCarte"></div>
@@ -21,29 +25,28 @@
 
 	<script>
         var villes = {
-            "Paris": { "lat": 48.852969, "lon": 2.349903 },
-            "Brest": { "lat": 48.383, "lon": -4.500 },
-            "lille": { "lat": 50.3758, "lon": 3.0330 }
-
+            "Valenciennes": { "lat":  50.3500000, "lon": 3.5333300 }
+           
         };
 
 
-        var carte = L.map('maCarte').setView([50.62972,  3.05722], 9);
+        var carte = L.map('maCarte').setView([50.56824630241217, 3.0351215963806624], 9);
 //je créé variable "carte" chargement dans la librairie "L.map(=id)"//
 // avec setview lattitude et longitude ([,]) vas nou servir a nous positionner sur la map et ,); lui sert de zoom par défault //
 
 L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                     // Il est toujours bien de laisser le lien vers la source des données
                     attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-                    minZoom: 1,
-                    maxZoom: 20
+                    minZoom: 8,
+                    maxZoom: 9,
                 }).addTo(carte);
 
 //personalisations du marqueur//
                 var icone = L.icon({
-                    iconUrl: "image/icon.jpg",
+                    iconUrl: "image/icone.png",
                     iconSize: [50, 50],
-                    iconAnchor: [60, 50,]
+                    iconAnchor: [25, 50,],
+                    popupAnchor: [0, -50]
                 })
 
 
@@ -56,5 +59,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 
 
     </script>
+
+<p>resto du coeur</p><img src="../PROJET_GEP/image/icone.png" alt="">  <a href=""></a>
+
+
+
     </body>
 </html>

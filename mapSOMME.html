@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Nous chargeons les fichiers CDN de Leaflet. Le CSS AVANT le JS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+
+        <style>
+            #maCarte{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                height:550px;
+                width: 650px;
+                margin-left: 120vh;
+            }
+        </style>
+
+
+        <title>mapSOMME</title>
+    </head>
+    <body>
+    <div id="maCarte"></div>
+        <!-- Fichiers Javascript  pour charger la librairie-->
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+	<script>
+        var villes = {
+            
+            "amiens": { "lat": 49.89473, "lon": 2.29328}
+            
+        };
+
+        var villes2 = {
+            
+            "abbeville": { "lat": 50.0600, "lon": 1.4959}
+            
+        };
+
+
+
+
+        var carte = L.map('maCarte').setView([49.9936705113246, 2.182465820585111], 9);
+//je créé variable "carte" chargement dans la librairie "L.map(=id)"//
+// avec setview lattitude et longitude ([,]) vas nou servir a nous positionner sur la map et ,); lui sert de zoom par défault //
+
+L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                    // Il est toujours bien de laisser le lien vers la source des données
+                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                    minZoom: 8,
+                    maxZoom: 9,
+                }).addTo(carte);
+
+//personalisations du marqueur//
+                var icone = L.icon({
+                    iconUrl: "image/icone.png",
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50,],
+                    popupAnchor: [0, -50]
+                })
+
+
+                var icone2 = L.icon({
+                    iconUrl: "image/icon.jpg",
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50,],
+                    popupAnchor: [0, -50]
+                })
+
+
+                for(ville in villes){
+                    var marqueur = L.marker([villes[ville].lat, villes[ville].lon], {icon: icone}).addTo(carte);
+//var marqueur variable que j'appelle L.marker'([]), me sert de longitude et latitude//
+                marqueur.bindPopup("<p>"+ville+"</p>");
+                }
+
+
+                for(ville in villes2){
+                    var marqueur = L.marker([villes2[ville].lat, villes2[ville].lon], {icon: icone2}).addTo(carte);
+//var marqueur variable que j'appelle L.marker'([]), me sert de longitude et latitude//
+                marqueur.bindPopup("<p>"+ville+"</p>");
+                }
+
+
+
+
+    </script>
+
+<p>resto du coeur</p><img src="../PROJET_GEP/image/icone.png" alt="">  <a href=""></a>
+
+
+
+    </body>
+</html>
