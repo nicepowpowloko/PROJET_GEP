@@ -6,6 +6,10 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
 
         <style>
+            *{
+                margin: 0;
+            }
+
             #maCarte{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
             height:550px;
                 width: 650px;
@@ -13,10 +17,48 @@
                border: 2px black solid;
                border-radius: 10px;
             }
+
+            .nav{
+                background-color: rgb(21, 167, 220);
+                height: 10vh;
+                width: auto;
+            }
+          .nav h1{
+              display: flex;
+              justify-content: center;
+          }
+          .assoc{
+              height: 300px;
+              width: 450px;
+              border: 2px solid black;
+              box-shadow: 5px 5px 5px black;
+              border-radius: 10px;
+              margin-left: 20vh;
+              margin-top: -50vh;
+              background-color: aquamarine;
+              display: flex;
+              padding: 10px;
+          }
+          .assoc p{
+              display: block;
+              justify-content: space-around;
+              padding: 20px;
+              font-size: 20px;
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              
+          }
+
         </style>
 
 
         <title>mapSOMME</title>
+
+<div class="nav">
+<h1>TITRE </h1>
+</div>
+<br>
+<br>
+
     </head>
     <body>
     <div id="maCarte"></div>
@@ -26,20 +68,20 @@
 	<script>
         var villes = {
             
-            "amiens": { "lat": 49.89473, "lon": 2.29328}
+            "APF france handicap": { "lat": 49.89473, "lon": 2.29328}
             
         };
 
         var villes3 = {
             
-            "pont remy": { "lat": 50.0489, "lon": 1.90058}
+            "la Croix Rouge": { "lat": 50.0489, "lon": 1.90058}
             
         };
 
 
         var villes2 = {
             
-            "abbeville": { "lat": 50.134581, "lon": 1.945999}
+            "Resto du coeurs" : { "lat": 50.134581, "lon": 1.945999}
             
         };
 
@@ -114,7 +156,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 
     </script>
 
-<p>resto du coeur</p><img src="../PROJET_GEP/image/icone.png" alt="">  <a href=""></a>
+
+
+<div class="assoc">
+<p>Restaurants du coeurs <img src="../PROJET_GEP/image/icon.jpg" height="20px" width="20px" alt=""> 
+    <br>
+    La Croix Rouge <img src="../PROJET_GEP/image/icon3.jpg" height="20px" width="20px" alt="" srcset="">
+     <br>
+     APF france handicap <img src="../PROJET_GEP/image/icone.png" height="20px" width="20px" alt="">
+
+</p>
+
+</div>
 
 
 
