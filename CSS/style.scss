@@ -7,6 +7,50 @@ header{
     background-image: url(../image/calvé2.png);
     width: 100%;
     height: 700px;
+    position: fixed;
 }
 
+.fiche1{
+    height: 300px;
+    width: 250px;
+    margin-top: 45vh;
+    margin-left: 90vh;
+    position: fixed;
+   
+}
 
+.fiche2{
+    height: 280px;
+    width: 250px;
+    margin-top: 48vh;
+    margin-left: 70vh;
+    position: fixed;
+    z-index: -1;
+    
+}
+
+.fiche3{
+    height: 262px;
+    width: 250px;
+    z-index: -3;
+ 
+  
+}
+
+.fiche4{
+    height: 280px;
+    width: 250px;
+    margin-top: 47.7vh;
+    margin-left: 80vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.fiche5{
+    height: 262px;
+    width: 250px;
+    margin-top: 50vh;
+    margin-left: 100vh;
+    position: fixed;
+    z-index: -2;
+}
